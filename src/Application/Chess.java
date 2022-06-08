@@ -1,14 +1,13 @@
 package Application;
 
+import board.Board;
 import board.Position;
 
 public class Chess {
 
 	public static void main(String[] args) {
 
-		Position pos = new Position(3, 5);
-		System.out.println(pos);
-
+		Board board = new Board(8,8);
 	}
 
 }
