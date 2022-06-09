@@ -27,6 +27,27 @@ public class UI {
 	 * ANSI_WHITE_BACKGROUND = "\u001B[47m";
 	 */
 
+	public final static void clearScreen()
+	{
+	    try
+	    {
+	        final String os = System.getProperty("os.name");
+	        
+	        if (os.contains("Windows"))
+	        {
+	            Runtime.getRuntime().exec("cls");
+	        }
+	        else
+	        {
+	            Runtime.getRuntime().exec("clear");
+	        }
+	    }
+	    catch (final Exception e)
+	    {
+	        //  Handle any exceptions.
+	    }
+	}
+	
 	public static ChessPosition readChessPosition(Scanner sc) {
 		try {
 		String s = sc.nextLine();
@@ -35,7 +56,7 @@ public class UI {
 		return new ChessPosition(column, row);
 		}
 		catch(RuntimeException e) {
-			throw new InputMismatchException("Error reading position, Valid numbers are from a1 to h8.");
+			throw new InputMismatchException("Error reading position. Valid numbers are from a1 to h8.");
 		}
 	}
 
@@ -58,14 +79,17 @@ public class UI {
 		}
 		System.out.print(" ");
 	}
-
-}
-
-/*
+	
+	/*
  * private static void printPiece(ChessPiece piece) { if (piece == null) {
  * System.out.print("-"); } else { if (piece.getColor() == Color.WHITE) {
  * System.out.print(ANSI_WHITE + piece + ANSI_RESET); } else {
  * System.out.println(ANSI_RED + piece + ANSI_RESET); }
  * 
- * } System.out.print(" "); }
+ * } System.out.print(" "); 
  */
+	
+
+}
+
+
